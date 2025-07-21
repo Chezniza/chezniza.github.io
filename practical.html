@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practical 11</title>
+  <link rel="stylesheet" href="practical.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Aquarium Guide</h1>
+  </header>
+
+  <nav>
+    <button id="hamIcon">Open Menu</button>
+    <ul id="menuItemsList">
+      <li><button id="page1btn">Aquascaping Techniques</button></li>
+      <li><button id="page2btn">Fish Compatibility</button></li>
+      <li><button id="page3btn">Uses of Aquariums</button></li>
+    </ul>
+  </nav>
+
+  <main id="pagecontainer">
+
+  <section class="page" id="page1">
+    <h2>Aquascaping Techniques</h2>
+    <p>Aquascaping is the art of arranging aquatic plants, rocks, and decorations inside an aquarium.</p>
+
+    <div id="aquaImageBox">
+    <img src="images/naturestyle.jpg" id="aquaImg" alt="Aquascape Style" />
+    </div>
+
+    <div id="aquaButtons">
+    <button onclick="changeStyle('nature')">Nature Style</button>
+    <button onclick="changeStyle('iwagumi')">Iwagumi</button>
+    <button onclick="changeStyle('jungle')">Jungle Style</button>
+    </div>
+
+    <p id="aquaDesc">Nature style uses plants and driftwood to resemble natural landscapes like forests and mountains.</p>
+
+    <div class="infoBox">
+    <h3>Why is Aquascaping Important?</h3>
+    <p>Aquascaping helps improve the environment inside the tank. It provides shelter for fish and helps water stay clean by supporting plant growth.</p>
+    </div>
+
+    <div class="infoBox">
+    <h3>Basic Tools Used</h3>
+    <ul>
+    <li>Plant Scissors – to trim plants neatly</li>
+    <li>Aquascaping Tweezers – to place small plants</li>
+    <li>Substrate Shovel – to shape the sand and soil</li>
+    </ul>
+    </div>
+  </section>
+
+
+
+    <section class="page" id="page2">page 2 content</section>
+    <section class="page" id="page3">page 3 content</section>
+  </main>
+
+  <script src="practical.js"></script>
+</body>
+
+</html>
