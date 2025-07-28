@@ -47,139 +47,136 @@ hamBtn.addEventListener("click", toggleMenus);
 
 
 
+// // BALL GAME -----------------------------------------------------------------------------------
+// /*find references to all the buttons and ball */
+// const leftBtn = document.querySelector("#leftBtn");
+// const rightBtn = document.querySelector("#rightBtn");
+// const upBtn = document.querySelector("#upBtn");
+// const downBtn = document.querySelector("#downBtn");
+// const resetBtn = document.querySelector("#resetBtn");
+// const ball = document.querySelector("#ball");
+// var ballX = ballY = 0; //assign initial position of ball
 
-/*find references to all the buttons and ball */
-const leftBtn = document.querySelector("#leftBtn");
-const rightBtn = document.querySelector("#rightBtn");
-const upBtn = document.querySelector("#upBtn");
-const downBtn = document.querySelector("#downBtn");
-const resetBtn = document.querySelector("#resetBtn");
-const ball = document.querySelector("#ball");
-var ballX = ballY = 0; //assign initial position of ball
+// //functions to update variables to control ball position
+// function ResetPos() {
+//   ballX = ballY = 0; //reset to zero
+//   UpdateBallStyle();
+// }
+// function MovePos(leftInc, topInc) {
+//   ballX += leftInc;
+//   ballY += topInc;
+//   UpdateBallStyle();
+// }
 
-//functions to update variables to control ball position
-function ResetPos() {
-  ballX = ballY = 0; //reset to zero
-  UpdateBallStyle();
-}
-function MovePos(leftInc, topInc) {
-  ballX += leftInc;
-  ballY += topInc;
-  UpdateBallStyle();
-}
-
-//function to update ball css as well as display text
-function UpdateBallStyle() {
-    // add conditions for the boundaries basically
-  // boundaries
-  if (ballX < 0) {
-    ballX = 0;
-  }
-  if (ballY < 0) {
-    ballY = 0;
-  }
-  if (ballX > 1500) { // assume 80vw ~ 800px
-    ballX = 1500;
-  }
-  if (ballY > 770) { // assume 80vh ~ 600px
-    ballY = 770;
-  }
+// //function to update ball css as well as display text
+// function UpdateBallStyle() {
+//     // add conditions for the boundaries basically
+//   // boundaries
+//   if (ballX < 0) {
+//     ballX = 0;
+//   }
+//   if (ballY < 0) {
+//     ballY = 0;
+//   }
+//   if (ballX > 1500) { // assume 80vw ~ 800px
+//     ballX = 1500;
+//   }
+//   if (ballY > 770) { // assume 80vh ~ 600px
+//     ballY = 770;
+//   }
   
-  ball.style.left = ballX + "px"; //set left property
-  ball.style.top = ballY + "px";  //set top property
-  ball.innerText = ballX + "," + ballY; //update coordinate
-}
+//   ball.style.left = ballX + "px"; //set left property
+//   ball.style.top = ballY + "px";  //set top property
+//   ball.innerText = ballX + "," + ballY; //update coordinate
+// }
 
 
-//function just to move left (decrease left style)
-function MoveLeft() {
-  MovePos(-10, 0);
-}
+// //function just to move left (decrease left style)
+// function MoveLeft() {
+//   MovePos(-10, 0);
+// }
 
-//eventlisteners to activate MovePos
-leftBtn.addEventListener("click", MoveLeft);
+// //eventlisteners to activate MovePos
+// if (leftBtn) {
+//   leftBtn.addEventListener("click", MoveLeft);
+// }
 
-//using anonymous function to pass in arguments from eventlistener
-rightBtn.addEventListener("click", function () {
-  MovePos(+10, 0);
-});
-upBtn.addEventListener("click", function () {
-  MovePos(0, -10);
-});
-downBtn.addEventListener("click", function () {
-  MovePos(0, +10);
-});
-resetBtn.addEventListener("click", ResetPos);
+// //using anonymous function to pass in arguments from eventlistener
+// rightBtn.addEventListener("click", function () {
+//   MovePos(+10, 0);
+// });
+// upBtn.addEventListener("click", function () {
+//   MovePos(0, -10);
+// });
+// downBtn.addEventListener("click", function () {
+//   MovePos(0, +10);
+// });
+// resetBtn.addEventListener("click", ResetPos);
 
-//using keyboard movements
-document.addEventListener('keydown', (e) => {
-  console.log(e);
-  if (e.code === "ArrowRight") {
-    MovePos(10, 0);
-  }
-  if (e.code === "ArrowLeft") {
-    MoveLeft();
-  }
-  if (e.code === "ArrowDown") {
-    MovePos(0, +10);
-  }
-  if (e.code === "ArrowUp") {
-    MovePos(0, -10);
-  }
-});
-
-
-//define more variables and constants
-var velX,velY;
-const minLeft=minTop=0;
-const maxTop=maxLeft=300;
-//function to pick random number from a min-max range
-function RandomRange(min,max){
-return Math.round(Math.random()*(max-min)+min);
-}
-//function to activate automove
-function StartAutoMove(){
-velX=RandomRange(-10,10);
-velY=RandomRange(-10,30);
-setInterval(MoveIt,100);
-}
-//callback function for setInterval
-function MoveIt(){
-MovePos(velX,velY); //move at random velocity picked earlier
-}
+// //using keyboard movements
+// document.addEventListener('keydown', (e) => {
+//   console.log(e);
+//   if (e.code === "ArrowRight") {
+//     MovePos(10, 0);
+//   }
+//   if (e.code === "ArrowLeft") {
+//     MoveLeft();
+//   }
+//   if (e.code === "ArrowDown") {
+//     MovePos(0, +10);
+//   }
+//   if (e.code === "ArrowUp") {
+//     MovePos(0, -10);
+//   }
+// });
 
 
-/* Move Pos function with collision check and reaction*/
-function MovePosWifCollision(){
-ballX += velX;
-ballY += velY;
-/*check if reach min/max left/top and flip velocity*/
-if(ballX>maxLeft){
-velX=-velX; //reverse the X velocity
-ballX=maxLeft; //snap ballX to maxLeft
-}
-if(ballY>maxTop){
-velY=-velY;
-ballY=maxTop; //snap ballY to maxTop
-}
-if(ballX<minLeft){
-velX=-velX;
-ballX=minLeft;
-}
-if(ballY<minTop){
-velY=-velY;
-ballY=minTop;
-}
-UpdateBallStyle();
-}
+// //define more variables and constants
+// var velX,velY;
+// const minLeft=minTop=0;
+// const maxTop=maxLeft=300;
+// //function to pick random number from a min-max range
+// function RandomRange(min,max){
+// return Math.round(Math.random()*(max-min)+min);
+// }
+// //function to activate automove
+// function StartAutoMove(){
+// velX=RandomRange(-10,10);
+// velY=RandomRange(-10,30);
+// setInterval(MoveIt,100);
+// }
+// //callback function for setInterval
+// function MoveIt(){
+// MovePos(velX,velY); //move at random velocity picked earlier
+// }
 
 
-StartAutoMove(); //invoke the function to activate automove
+// /* Move Pos function with collision check and reaction*/
+// function MovePosWifCollision(){
+// ballX += velX;
+// ballY += velY;
+// /*check if reach min/max left/top and flip velocity*/
+// if(ballX>maxLeft){
+// velX=-velX; //reverse the X velocity
+// ballX=maxLeft; //snap ballX to maxLeft
+// }
+// if(ballY>maxTop){
+// velY=-velY;
+// ballY=maxTop; //snap ballY to maxTop
+// }
+// if(ballX<minLeft){
+// velX=-velX;
+// ballX=minLeft;
+// }
+// if(ballY<minTop){
+// velY=-velY;
+// ballY=minTop;
+// }
+// UpdateBallStyle();
+// }
 
 
-
-
-
+// StartAutoMove(); //invoke the function to activate automove
 
 
 
@@ -197,4 +194,46 @@ function changeStyle(styleType) {
     img.src = "images/junglestyle.jpg";
     desc.innerText = "Jungle style looks wild and untamed. It includes a lot of plants that grow freely.";
   }
+}
+
+
+
+
+
+// PAGE 2 -----------------------------------------------------------------
+// Toggle Misconception Box
+const toggleMisconceptionBtn = document.querySelector("#toggleMisconceptionBtn");
+const misconceptionBox = document.querySelector("#misconceptionBox");
+
+toggleMisconceptionBtn.addEventListener("click", function () {
+  if (misconceptionBox.style.display === "block") {
+    misconceptionBox.style.display = "none";
+    toggleMisconceptionBtn.innerHTML = "Show Misconceptions";
+  } else {
+    misconceptionBox.style.display = "block";
+    toggleMisconceptionBtn.innerHTML = "Hide Misconceptions";
+  }
+});
+
+
+
+
+// AUDIO ELEMENTS -------------------------------------------------------------------------
+const bgMusic = document.querySelector("#bgMusic");
+const clickSound = document.querySelector("#clickSound");
+
+// Start background music after first user click
+document.addEventListener("click", function () {
+  bgMusic.volume = 0.5;
+  bgMusic.play();
+}, { once: true });
+
+
+// Play click sound when the user press the buttons
+const navButtons = document.querySelectorAll("nav ul li button");
+for (let btn of navButtons) {
+  btn.addEventListener("click", function () {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
 }
