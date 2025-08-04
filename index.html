@@ -1,0 +1,287 @@
+<!-- 
+  Aquarium Guide Website – Assignment 2
+  By Mikaail
+  
+  This project is an educational and interactive website about aquariums. 
+  It covers topics like Aquascaping Techniques, Fish Compatibility & Misconceptions, 
+  and the Uses of Aquariums. The website also includes interactive features 
+  such as a drag-and-drop fish tank mini-game, background music, video embedding, 
+  responsive layout for mobile and desktop, and simple animations.
+
+  Technologies used:
+  - HTML5
+  - CSS3 (with transitions, animations, media queries)
+  - JavaScript (DOM manipulation, event listeners, timed events, game logic)
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practical 11</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- Background music (looped) -->
+<audio id="bgMusic" src="audio/aquaBGM.mp3" loop></audio>
+
+<!-- Click sound for nav -->
+<audio id="clickSound" src="audio/click.mp3"></audio>
+
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Aquarium Guide</h1>
+  </header>
+
+
+  <nav>
+    <button id="hamIcon">Open Menu</button>
+    <ul id="menuItemsList">
+      <li><button id="page1btn">Aquascaping Techniques</button></li>
+      <li><button id="page2btn">Fish Compatibility</button></li>
+      <li><button id="page3btn">Uses of Aquariums</button></li>
+      <li><button id="page4btn">Mini Game</button></li>
+    </ul>
+  </nav>
+
+
+
+
+
+  <!-- MAIN ---------------------------------------------------------- -->
+  <main id="pagecontainer">
+
+
+      <!-- PAGE 1 ----------------------------------------------------------------------------------------------- -->
+      <section class="page" id="page1">
+
+          <h2>Aquascaping Techniques</h2>
+          <p>Aquascaping is the art of arranging aquatic plants, rocks, and decorations inside an aquarium.</p>
+
+          <div id="aquaImageBox">
+            <img src="images/naturestyle.jpg" id="aquaImg" alt="Aquascape Style" />
+          </div>
+
+          <div id="aquaButtons">
+            <button onclick="changeStyle('nature')">Nature Style</button>
+            <button onclick="changeStyle('iwagumi')">Iwagumi</button>
+            <button onclick="changeStyle('jungle')">Jungle Style</button>
+          </div>
+
+          <p id="aquaDesc">Nature style uses plants and driftwood to resemble natural landscapes like forests and mountains.</p>
+
+          <div class="infoBox">
+            <h3>Why is Aquascaping Important?</h3>
+            <p>Aquascaping helps improve the environment inside the tank. It provides shelter for fish and helps water stay clean by supporting plant growth.</p>
+            </div>
+          <div class="infoBox">
+
+          <h3>Basic Tools Used</h3>
+          <ul>
+            <li>Plant Scissors – to trim plants neatly</li>
+            <li>Aquascaping Tweezers – to place small plants</li>
+            <li>Substrate Shovel – to shape the sand and soil</li>
+          </ul>
+
+          </div>
+
+      </section>
+
+
+      <!-- PAGE 2 ----------------------------------------------------------------------------------------------- -->
+      <section class="page" id="page2">
+
+          <h2>Fish Compatibility & Common Misconceptions</h2>
+
+          <!-- Compatibility Grid -->
+          <div id="compatibilityGrid">
+            <div class="compatBox good">
+              <h3>Good Fish Combinations</h3>
+              <ul>
+                <li>Guppies + Neon Tetras</li>
+                <li>Mollies + Corydoras</li>
+                <li>Platies + Swordtails</li>
+              </ul>
+            </div>
+            <div class="compatBox bad">
+              <h3>Bad Fish Combinations</h3>
+              <ul>
+                <li>Betta + Guppies</li>
+                <li>Goldfish + Tropical Fish</li>
+                <li>Oscar + Any Small Fish</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Misconception Toggle -->
+          <button id="toggleMisconceptionBtn">Show Misconceptions</button>
+          <div id="misconceptionBox">
+            <ul>
+              <li>"You don't need a filter for small tanks"</li>
+              <li>"All fish can live together"</li>
+              <li>"Fish don’t need much space"</li>
+              <li>Proper pairing is important for fish health!</li>
+            </ul>
+          </div>
+
+          <!-- Embedded Video -->
+          <div class="video_center">
+            <div class="video_wrapper">
+              <iframe src="https://www.youtube.com/embed/3-Xy-fKBccU" title="Aquarium Compatibility Guide" allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+
+        
+      </section>
+
+
+      <!-- PAGE 3 -------------------------------------------------------------------------------------------------------- -->
+      <section class="page" id="page3">
+        
+        <h2>Uses of Aquariums</h2>
+
+        <div id="useContainer">
+          <!-- Box 1: Relaxation -->
+           
+          <div class="useBox">
+            <div class="useInner">
+              <div class="useFront">
+                <img src="images/relax.png" alt="Relaxation" class="useImg">
+                <h3>Relaxation</h3>
+                <p>Watching fish swim helps reduce stress and provides a calming environment.</p>
+              </div>
+              <div class="useBack">
+                <h4>Fun Fact</h4>
+                <p>Some hospitals use aquariums in waiting areas to lower patients' anxiety levels.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box 2: Education -->
+          <div class="useBox">
+            <div class="useInner">
+              <div class="useFront">
+                <img src="images/education.png" alt="Education" class="useImg">
+                <h3>Education</h3>
+                <p>Aquariums are used in schools and homes to learn about underwater life and ecosystems.</p>
+              </div>
+              <div class="useBack">
+                <h4>Fun Fact</h4>
+                <p>Some aquariums hold live classes where students can interact with marine biologists.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box 3: Decoration -->
+          <div class="useBox">
+            <div class="useInner">
+              <div class="useFront">
+                <img src="images/decor.png" alt="Decoration" class="useImg">
+                <h3>Decoration</h3>
+                <p>They make homes, offices, and waiting rooms more peaceful and beautiful.</p>
+              </div>
+              <div class="useBack">
+                <h4>Fun Fact</h4>
+                <p>Designer aquariums can be custom-built into walls, furniture, or even coffee tables!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Code Section -->
+        <section class="qrCodePanel">
+          <h3>View This Website on Your Phone</h3>
+          <p>Scan the QR code below to open this site on your mobile device for the full experience.</p>
+          <img src="images/qrcode.png" alt="QR Code" class="qrImg">
+        </section>
+
+
+      </section>
+
+
+
+      <!-- PAGE 4: Mini Game ------------------------------------------------------------------------------------------------------ -->
+      <section class="page" id="page4">
+        <h2>Feed the Fish</h2>
+        <p>Drag the correct item into the fish tank to feed your fish!</p>
+
+        <div id="gameContainer">
+          <div id="itemsArea">
+            <div class="draggable" draggable="true" data-item="food" style="background-image: url('images/fishfood_closed.png');"></div>
+            <div class="draggable" draggable="true" data-item="rock" style="background-image: url('images/rock.png');"></div>
+            <div class="draggable" draggable="true" data-item="trash" style="background-image: url('images/trash.png');"></div>
+          </div>
+
+          <div id="dropZone">
+            <p class="hint">Drop the correct item here!</p>
+            <img src="images/fish.png" id="swimFish">
+          </div>
+        </div>
+
+        <div id="gameResult"></div>
+        <button onclick="resetGame()">Reset Game</button>
+      </section>
+
+
+
+      <!-- Favourite Fish Form -->
+      <section class="formPanel">
+        <h3>Submit Your Favourite Fish</h3>
+        <form id="fishForm">
+          <label for="favFish">Fish Name:</label>
+          <input type="text" id="favFish" required>
+          <button type="submit">Submit</button>
+        </form>
+        <div id="fishResult"></div>
+      </section>
+
+
+      <!-- Sprite Demo Panel -->
+      <section class="spriteDemo">
+        <h4>Fish Food Animation Preview</h4>
+        <p>This example uses a sprite technique to show a hover animation using pixel art.</p>
+
+        <div class="spriteBox">
+          <div class="spriteFrame frame1"></div>
+          <div class="spriteFrame frame2"></div>
+        </div>
+      </section>
+
+
+
+      <section class="footerInfo">
+
+        <div class="footerBox">
+          <div class="footerRow">
+            <div class="footerCol">
+              <h3>Website Info</h3>
+              <p>This website is created for an assignment about aquariums and fish keeping.</p>
+            </div>
+            <div class="footerCol">
+              <ul>
+                <li><strong>Student:</strong> Mikaail</li>
+                <li><strong>Class:</strong> GDT2401</li>
+                <li><strong>Email:</strong> mikaailnor@gmail.com</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+  </main>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
